@@ -1,2 +1,2 @@
 worker: py main.py
-# bruh heroku please work
+# YES HEROKU IS FINALLY WORKING
