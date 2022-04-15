@@ -3,6 +3,8 @@ from nextcord.ext import commands
 
 client = commands.Bot(command_prefix = ['*', 'bob '])
 
+# heroku why u no work?
+
 # EVENTS
 @client.event
 async def on_ready():
