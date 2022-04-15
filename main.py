@@ -45,8 +45,8 @@ async def balance(ctx):
     economy_dict = await getdata()
     
     bal_em = nextcord.Embed(title = f'Balance for {ctx.author.name}', color = random.choice(EMBED_COLORS))
-    bal_em.add_field(name = 'Purse', value = economy_dict[str(user.id)]['purse'])
-    bal_em.add_field(name = 'Bank', value = economy_dict[str(user.id)]['bank'])
+    bal_em.add_field(name = 'Purse', value = economy_dict[str(ctx.author.id)]['purse'])
+    bal_em.add_field(name = 'Bank', value = economy_dict[str(ctx.author.id)]['bank'])
 
     await ctx.reply(embed = bal_em)
 
