@@ -1,2 +1,2 @@
-worker: py main.py
+worker: python3 main.py
 # YES HEROKU IS FINALLY WORKING
