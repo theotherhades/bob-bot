@@ -24,6 +24,7 @@ async def on_command_error(ctx, error):
         await ctx.reply(f':smiling_imp: Nice try, {ctx.author.mention}\nYou\'ll need perms for that to work.')
     else:
         await ctx.reply(f':thinking: Hmm... something went wrong.\nThis is the error I got: `{error}`')
+        print('Received error: ' + error)
 
 
 
