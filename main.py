@@ -61,7 +61,7 @@ async def new_user(user):
         economy_dict[str(user.id)]['bank'] = 0
 
     with open('mucho_dinero.json', 'w') as f:
-        economy_dict = json.dump(economy_dict, f)
+        json.dump(economy_dict, f)
 
 async def getdata():
     with open('mucho_dinero.json', 'r') as f:
