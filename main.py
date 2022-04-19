@@ -1,6 +1,7 @@
 import os
 import json
 import random
+import requests
 import nextcord
 from nextcord.ext import commands
 
@@ -8,6 +9,9 @@ client = commands.Bot(command_prefix = ['*', 'bob '])
 
 # CONSTANTS
 EMBED_COLORS = [nextcord.Color.red(), nextcord.Color.yellow(), nextcord.Color.blurple()]
+
+# GLOBALS
+url = 'https://bob-bot-db.theotherhades-alt.repl.co/'
 
 # heroku why u no work?
 
@@ -38,6 +42,14 @@ async def test(ctx):
 async def permtest(ctx):
     await ctx.reply('it worked :triumph:')
 
+@client.command('db_test')
+async def db_test(ctx):
+    await ctx.reply(await getdata())
+
+@client.command('db_add_test')
+async def db_add_test(ctx):
+    await ctx.reply(await new_user(ctx.author))
+
 
 # ECONOMY STUFF
 @client.command('balance', help = 'Check user balance')
@@ -52,6 +64,7 @@ async def balance(ctx):
     await ctx.reply(embed = bal_em)
 
 async def new_user(user):
+    '''
     economy_dict = await getdata()
 
     if str(user.id) in economy_dict:
@@ -62,10 +75,20 @@ async def new_user(user):
 
     with open('mucho_dinero.json', 'w') as f:
         json.dump(economy_dict, f)
+    '''
+    test_data = await getdata()
+    if str(user.id) in test_data:
+        return False
+    else:
+        requests.post(f'{url}add={str(user.id)}')
 
 async def getdata():
+    '''
     with open('mucho_dinero.json', 'r') as f:
         return json.load(f)
+    '''
+    test_data = json.loads(requests.get(f'{url}get=all'))
+    return test_data
 
 
 
