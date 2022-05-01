@@ -1,3 +1,6 @@
+'''
+Bot not updating because of Heroku issues smh
+'''
 import os
 import json
 import random
@@ -12,8 +15,6 @@ EMBED_COLORS = [nextcord.Color.red(), nextcord.Color.yellow(), nextcord.Color.bl
 
 # GLOBALS
 url = 'https://bob-bot-db.theotherhades-alt.repl.co/'
-
-# heroku why u no work?
 
 # EVENTS
 @client.event
@@ -91,5 +92,4 @@ async def getdata():
     return test_data
 
 
-# comment so git commits
 client.run(os.environ['CLIENT_TOKEN'])
