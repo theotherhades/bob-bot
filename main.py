@@ -24,13 +24,16 @@ async def on_ready():
 # Handling errors
 @client.event
 async def on_command_error(ctx, error):
+    '''
     # No perms?
     if isinstance(error, commands.MissingPermissions):
         await ctx.reply(f':smiling_imp: Nice try, {ctx.author.mention}\nYou\'ll need perms for that to work.')
     else:
         await ctx.reply(f':thinking: Hmm... something went wrong.\nThis is the error I got: `{error}`')
         print('Received error: ' + str(error))
-
+    '''
+    # Send the error traceback to the chat
+    await ctx.send(f'```py\n{error}```')
 
 
 # COMMANDS
